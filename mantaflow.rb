@@ -7,7 +7,6 @@ class Mantaflow < Formula
 
   option "with-openmp", "Build with OpenMP support"
   option "with-qt5", "Build the QT GUI version"
-  option "with-scenes", "Install python sample scene files"
 
   depends_on "cmake" => :build
   depends_on "qt5" => :optional
@@ -31,7 +30,7 @@ class Mantaflow < Formula
     bin.install_symlink "manta" => "mantaflow"
 
     # Copy the python sample scene files
-    pkgshare.install Dir["scenes/*"] if build.with? "scenes"
+    pkgshare.install Dir["scenes/*"]
   end
 
   test do
