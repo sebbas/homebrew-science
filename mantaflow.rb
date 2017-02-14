@@ -22,14 +22,16 @@ class Mantaflow < Formula
     args << "-DOPENMP=ON" if build.with? "openmp"
     args << "-DGUI=ON" if build.with? "qt5"
 
-    system "cmake", ".", *args
-    system "make"
+    mkdir "build" do
+      system "cmake", "..", *args
+      system "make"
 
-    bin.install "manta"
+      bin.install "manta"
 
-    # Symlink 'mantaflow' to avoid confusion when getting started with mantaflow
-    # Actual command is 'manta'
-    bin.install_symlink "manta" => "mantaflow"
+      # Symlink 'mantaflow' to avoid confusion when getting started with mantaflow
+      # Actual command is 'manta'
+      bin.install_symlink "manta" => "mantaflow"
+    end
 
     # Copy the python sample scene files
     pkgshare.install Dir["scenes/*"]
