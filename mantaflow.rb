@@ -13,8 +13,10 @@ class Mantaflow < Formula
   depends_on :python => :build
 
   needs :openmp if build.with? "openmp"
+  needs :cxx11
 
   def install
+    ENV.cxx11
     args = std_cmake_args
 
     args << "-DOPENMP=ON" if build.with? "openmp"
