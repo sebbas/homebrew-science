@@ -10,7 +10,7 @@ class Mantaflow < Formula
 
   depends_on "cmake" => :build
   depends_on "qt5" => :optional
-  depends_on :python => :build
+  depends_on :python if MacOS.version <= :snow_leopard
 
   needs :openmp if build.with? "openmp"
   needs :cxx11
