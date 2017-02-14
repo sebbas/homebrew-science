@@ -3,6 +3,7 @@ class Mantaflow < Formula
   homepage "http://mantaflow.com/"
   url "http://mantaflow.com/download/manta-src-0.9.tar"
   sha256 "f55298f10650b35454f3134d2d0e265b19c24c3c68991e4bbedf5a460be67077"
+  head "https://bitbucket.org/mantaflow/manta.git"
 
   option "with-openmp", "Build with OpenMP support"
   option "with-qt5", "Build the QT GUI version"
